@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+    <title>Block Chain Console</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body onload="getAllAgents()">
+<script src="js/display.js"></script>
+<script src="js/routers.js"></script>
+<h1>Block Chain Demo</h1>
+<hr>
+
+<p>
+    <button type="button" class="button" id="addAgent" onclick="createAgent()">New Agent</button>
+    <button type="button" id="getOne" onclick="showForm(true)" class="button">Get Agent</button>
+    <button type="button" id="getAll" onclick="getAllAgents()" class="button">Refresh All</button>
+    <button type="button" class="button" id="delAllAgent" onclick="deleteAllAgents()">Delete All Agents</button>
+    <form id="agent-form" onsubmit="event.preventDefault(); showForm(false); getOneAgent(document.getElementById('name').value);" style="display:none;">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name"><br><br>
+      <button type="submit" class="button" id="submit">Submit</button>
+    </form>
+</p>
+
+<hr>
+<p id="msg" class="msg">
+    Empty.
+</p>
+
+<table id="output">
+</table>
+
+<script>
+  function showForm(show) {
+    if (show)
+      document.getElementById("agent-form").style.display = "block";
+    else
+      document.getElementById("agent-form").style.display = "none";
+  }
+</script>
+
+</body>
+</html>
